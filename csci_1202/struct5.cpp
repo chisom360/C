@@ -5,43 +5,48 @@
 #include <iostream>
 using namespace std;
 
-struct part{
+struct part
+{
   char name[128];
   long no;
   double price;
 };
 
-void print_part(part* p);
+void print_part(part *p);
 
-int main( )
+int main()
 {
   int size;
-  part *inventory;    /* Array to hold SIZE "part"s */
+  part *inventory; /* Array to hold SIZE "part"s */
 
   cout << "Enter number of parts: " << flush;
   cin >> size;
-  
-  inventory = new part[size]; 
 
-  for(int i=0; i < size; i++){        /* Load the array of structures. */
+  // new is like malloc in C++
+  inventory = new part[size];
+
+  for (int i = 0; i < size; i++)
+  { /* Load the array of structures. */
     cout << "Enter part name: " << flush;
-    cin.get( );  // Strip trailing newline
-    cin.getline((inventory + i)->name,128);
+    cin.get(); // Strip trailing newline
+    cin.getline((inventory + i)->name, 128);
     cout << "Enter part number: " << flush;
     cin >> (inventory + i)->no;
     cout << "Enter part price: " << flush;
     cin >> (inventory + i)->price;
   }
 
-  for(int i=0; i < size; i++){        /* Display the array of structures. */
+  for (int i = 0; i < size; i++)
+  { /* Display the array of structures. */
     print_part(inventory + i);
     cout << '\n';
   }
 
-  delete[ ] inventory;
+  // this is to de-alocate the program
+  delete[] inventory;
 }
 
-void print_part(part* p)
+void print_part(part *p)
 {
   cout << "Product: " << p->name << endl;
   cout << "Part No.: " << p->no << endl;
@@ -49,7 +54,6 @@ void print_part(part* p)
 
   return;
 }
-
 
 /*    OUTPUT: struct5.cpp
 
