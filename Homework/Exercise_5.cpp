@@ -7,12 +7,27 @@ struct COMPLEX
   double Im;
 };
 
+// Addition function prototypes
 COMPLEX Add(COMPLEX a, COMPLEX b);
 COMPLEX Add(COMPLEX a, double b);
 COMPLEX Add(double a, COMPLEX b);
+
+//Subtraction function prototypes
 COMPLEX SUB(COMPLEX a, COMPLEX b);
 COMPLEX SUB(COMPLEX a, double b);
 COMPLEX SUB(double a, COMPLEX b);
+
+//Multiplication function prototypes
+COMPLEX Mult(COMPLEX a, COMPLEX b);
+COMPLEX Mult(COMPLEX a, double b);
+COMPLEX Mult(double a, COMPLEX b);
+
+//Division function prototype
+COMPLEX DIV(COMPLEX a, COMPLEX b);
+COMPLEX DIV(COMPLEX a, double b);
+COMPLEX DIV(double a, COMPLEX b);
+
+//Print function prototype
 void print(COMPLEX c);
 
 int main()
@@ -88,6 +103,49 @@ int main()
   cout << endl;
   cout << "\n\n";
 
+  //Multiplication printout for Mult(COMPLEX a, COMPLEX b)
+  cout << "=============Multiplication==============" << endl;
+  cresult = Mult(c1, c2);
+  cout << "Result of ";
+  print(c1);
+  cout << " * ";
+  print(c2);
+  cout << " = ";
+  print(cresult);
+  cout << endl;
+
+  //Multiplication printout for Mult(COMPLEX a, COMPLEX b)
+  cresult = Mult(c1, 3.3);
+  cout << "Result of ";
+  print(c1);
+  cout << " * ";
+  cout << "(" << 3.3 << ")"
+       << " = ";
+  print(cresult);
+  cout << endl;
+
+  //Multiplication printout for COMPLEX Mult(double a, COMPLEX b)
+  cresult = Mult(3.3, c2);
+  cout << "Result of "
+       << "(" << 3.3 << ")"
+       << " * ";
+  print(c2);
+  cout << " = ";
+  print(cresult);
+  cout << endl;
+  cout << "\n\n";
+
+  //Division printout for DIV(COMPLEX a, COMPLEX b)
+  cout << "=================Division=================" << endl;
+  cresult = DIV(c1, c2);
+  cout << "Result of ";
+  print(c1);
+  cout << " * ";
+  print(c2);
+  cout << " = ";
+  print(cresult);
+  cout << endl;
+
   return 0;
 }
 
@@ -140,6 +198,35 @@ COMPLEX SUB(double a, COMPLEX b)
   COMPLEX result;
   result.Re = a - b.Re;
   result.Im = b.Im;
+  return result;
+  // return SUB(b,a);
+}
+
+COMPLEX Mult(COMPLEX a, COMPLEX b)
+{
+  COMPLEX result;
+
+  result.Re = a.Re * b.Re - a.Im * b.Im;
+  result.Im = a.Re * b.Im + a.Im * b.Re;
+
+  return result;
+}
+
+COMPLEX Mult(COMPLEX a, double b)
+{
+  COMPLEX result;
+
+  result.Re = a.Re * b;
+  result.Im = a.Im * b;
+
+  return result;
+}
+
+COMPLEX Mult(double a, COMPLEX b)
+{
+  COMPLEX result;
+  result.Re = b.Re * a;
+  result.Im = b.Im * a;
   return result;
   // return SUB(b,a);
 }
