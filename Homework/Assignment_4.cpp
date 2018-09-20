@@ -61,9 +61,12 @@ int main()
   }
   cout << "Enter a constant double number:";
   cin >> num;
-  while (cin.fail())
+  // if the user entered an invalid character por zero entered
+  // this prevents division by zero
+  while (cin.fail() || num == 0)
   {
-    cout << "\nIncorrect value entered for constant double. Try again" << endl;
+    cout << "\nYou either entered an invalid number or you entered a zero" << endl;
+    cout << "\nCannot divide by zero. Try again" << endl;
     cin.clear();
     cin.ignore(256, '\n');
     cout << "Enter a constant double number:";
