@@ -1,0 +1,13 @@
+Types of constructor:
+
+a) Default contructor:
+	-Given to the the class by default ( Default default constructor)
+	- Does no initialization
+ 	ai) Written by the programmer but accepts no parameters
+
+b) Initializing:
+	-Constructor requires parameters
+c) Copy:
+-Builds an object intialized by another object of the class.
+-Get one by default if you don't write one.
+Makes an exact copy
