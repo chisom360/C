@@ -1,0 +1,106 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    visible_bell = True
+    scrollback_lines = 1000000
+    foreground_color = "#ffffff"
+    copy_on_selection = True
+    background_color = "#300a24"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+      profile = None
+      size = 900, 600
+[plugins]
+
+
+
+
+
+[global_config]
+  sticky = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child0]]]
+      order = 0
+      parent = ""
+      position = 0:25
+      size = 1366, 708
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 632
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 354
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 354
+      type = VPaned
+    [[[terminal3]]]
+      command = top; bash
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+    [[[terminal4]]]
+      command = su; bash
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+    [[[terminal6]]]
+      command = cd ~/work; bash
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+    [[[terminal7]]]
+      command = cd ~/work; bash
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+  [[simples]]
+    [[[child0]]]
+      order = 0
+      parent = ""
+      position = 0:25
+      size = 715, 694
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 348
+      type = VPaned
+    [[[terminal2]]]
+      command = cd ~/work; bash
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+    [[[terminal3]]]
+      command = cd ~/work; bash
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+[plugins]
+[profiles]
+  [[default]]
+    scrollback_infinite = True
