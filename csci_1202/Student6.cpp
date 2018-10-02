@@ -9,88 +9,90 @@
 
 */
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-class Student{
-    static long count;  // Keeps count of Student objects
-                      // ... and generates id numbers.
-    char * name;
-    double gpa;
-    long id;
-    char grade;
-    void setGrade( );
-    
-  public:
-    static long getCount( );
+class Student
+{
+  static long count; // Keeps count of Student objects
+                     // ... and generates id numbers.
+  char *name;
+  double gpa;
+  long id;
+  char grade;
+  void setGrade();
 
-    const char * getName( ) const;
-    char * setName(char const * const);
-    double getGpa( ) const;
-    double setGpa(double);
-    long getId( ) const;
-    char getGrade( ) const;
-    void display( ) const;
-    void print( ) const;
+public:
+  static long getCount();
 
-    Student( ); 
-    Student(char * n, double g);
+  const char *getName() const;
+  char *setName(char const *const);
+  double getGpa() const;
+  double setGpa(double);
+  long getId() const;
+  char getGrade() const;
+  void display() const;
+  void print() const;
+
+  Student();
+  Student(char *n, double g);
 };
 
 long Student::count = 0;
-  
-Student::Student( )  // default constructor
+
+Student::Student() // default constructor
 {
   id = ++count;
 }
 
-Student::Student(char * n, double g)
+Student::Student(char *n, double g)
 {
-  name = new char[strlen(n)+1];
-  strcpy(name,n);
+  name = new char[strlen(n) + 1];
+  strcpy(name, n);
   gpa = g;
-  setGrade( );
+  setGrade();
   id = ++count;
 }
-  
-long Student::getCount( )
+
+long Student::getCount()
 {
   return count;
 }
-  
-const char * Student::getName( ) const
+
+const char *Student::getName() const
 {
   return name;
 }
-  
-char * Student::setName(const char * const name)
-{  // Exercising this 
-  strcpy(this->name,name);
+
+char *Student::setName(const char *const name)
+{ // Exercising this
+  strcpy(this->name, name);
   return this->name;
 }
-  
-double Student::getGpa( ) const
+
+double Student::getGpa() const
 {
   return gpa;
 }
-  
+
 double Student::setGpa(double gpa)
 {
   this->gpa = gpa;
-  setGrade( );
+  setGrade();
   return this->gpa;
 }
-  
-long Student::getId( ) const
+
+long Student::getId() const
 {
   return id;
 }
-  
-char Student::getGrade( ) const
+
+char Student::getGrade() const
 {
   return grade;
 }
-  
-void Student::setGrade( )
+
+void Student::setGrade()
 {
   if (gpa >= 3.5)
     grade = 'A';
@@ -99,47 +101,46 @@ void Student::setGrade( )
   else if (gpa >= 1.5)
     grade = 'C';
   else if (gpa >= 0.5)
-      grade = 'D';
+    grade = 'D';
   else
     grade = 'F';
 }
 
-void Student::display( ) const
+void Student::display() const
 {
-  cout << "Student name = "  << name << endl;
+  cout << "Student name = " << name << endl;
   cout << "Student gpa = " << gpa << endl;
   cout << "Student id = " << id << endl;
 }
 
-void Student::print( ) const
+void Student::print() const
 {
   cout << name << ", " << gpa << ", " << id;
 }
 
-int main( ) 
+int main()
 {
-    cout << "Number of students is: " << Student::getCount( ) << endl;
+  cout << "Number of students is: " << Student::getCount() << endl;
 
-    Student s("Joe Cool", 3.95), 
-            s2("Cool Joe", 3.5), 
-            s3("Joe Llama", 3.2);
-    
-    s.print( );
-    cout << " is a " << s.getGrade( ) << " student." << endl;
-    s2.print( );
-    cout << " is a " << s2.getGrade( ) << " student." << endl;
-    s3.print( );
-    cout << " is a " << s3.getGrade( ) << " student." << endl;
-    cout << "Number of students is: " << s2.getCount( ) << endl << endl;
+  Student s("Joe Cool", 3.95),
+      s2("Cool Joe", 3.5),
+      s3("Joe Llama", 3.2);
 
-    cout << s.getId( ) << " is a " << s.getGrade( ) << " student." << endl;
-    cout << s2.getId( ) << " is a " << s2.getGrade( ) << " student." << endl;
-    cout << s3.getId( ) << " is a " << s3.getGrade( ) << " student." << endl;
-    
-    return 0;
+  s.print();
+  cout << " is a " << s.getGrade() << " student." << endl;
+  s2.print();
+  cout << " is a " << s2.getGrade() << " student." << endl;
+  s3.print();
+  cout << " is a " << s3.getGrade() << " student." << endl;
+  cout << "Number of students is: " << s2.getCount() << endl
+       << endl;
+
+  cout << s.getId() << " is a " << s.getGrade() << " student." << endl;
+  cout << s2.getId() << " is a " << s2.getGrade() << " student." << endl;
+  cout << s3.getId() << " is a " << s3.getGrade() << " student." << endl;
+
+  return 0;
 }
-
-
 
 /*    OUTPUT: Student6.cpp
 
