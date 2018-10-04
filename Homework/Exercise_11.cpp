@@ -5,6 +5,7 @@ struct COMPLEX
 {
   double Re;
   double Im;
+  COMPLEX operator+(const COMPLEX &b) const;
 };
 
 // Addition function prototypes
@@ -219,6 +220,19 @@ COMPLEX Mult(double a, COMPLEX b)
   return result;
   // return SUB(b,a);
 }
+/*
+
+COMPLEX COMPLEX::operator+(const COMPLEX &b) const
+{
+  COMPLEX result;
+
+  result.Re = a.Re + b.Re;
+  result.Im = a.Im + b.Im;
+
+  return result;
+}
+
+*/
 /*    OUTPUT: Exercise_5.cpp
 	  ================Addition===============
 Result of (2 + 3i) + (2 + 3i) = (4 + 6i)

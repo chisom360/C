@@ -254,7 +254,7 @@ COMPLEX SUB(double a, COMPLEX b)
 {
   COMPLEX result;
   result.Re = a - b.Re;
-  result.Im = b.Im;
+  result.Im = -b.Im;
   return result;
   // return SUB(b,a);
 }
