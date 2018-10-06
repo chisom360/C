@@ -6,11 +6,11 @@ struct COMPLEX
   double Re;
   double Im;
   COMPLEX operator+(const COMPLEX &b) const;
-  COMPLEX operator+(const double &b) const;
+  friend COMPLEX operator+(const COMPLEX &a, const double &b);
   friend COMPLEX operator+(const double &x, const COMPLEX &b);
 
-  COMPLEX operator-(const COMPLEX &b) const;
-  COMPLEX operator-(const double &b) const;
+  friend COMPLEX operator-(const COMPLEX &a, const COMPLEX &b);
+  friend COMPLEX operator-(const COMPLEX &a, const double &b);
   friend COMPLEX operator-(const double &x, const COMPLEX &b);
 };
 
@@ -100,65 +100,45 @@ void print(COMPLEX c)
 COMPLEX COMPLEX::operator+(const COMPLEX &b) const
 {
   COMPLEX result;
-
   result.Re = Re + b.Re;
   result.Im = Im + b.Im;
-
   return result;
 }
-COMPLEX COMPLEX::operator+(const double &b) const
+COMPLEX operator+(const COMPLEX &a, const double &b)
 {
   COMPLEX result;
-  result.Re = Re + b;
-  result.Im = Im;
+  result.Re = a.Re + b;
+  result.Im = a.Im;
   return result;
 }
 
 COMPLEX operator+(const double &x, const COMPLEX &b)
 {
   COMPLEX result;
-
   result.Re = b.Re + x;
   result.Im = b.Im;
-
   return result;
 }
 
-COMPLEX COMPLEX::operator-(const COMPLEX &b) const
+COMPLEX operator-(const COMPLEX &a, const COMPLEX &b)
 {
   COMPLEX result;
-
-  result.Re = Re - b.Re;
-  result.Im = Im - b.Im;
+  result.Re = a.Re - b.Re;
+  result.Im = a.Im - b.Im;
   return result;
 }
 
-COMPLEX COMPLEX::operator-(const double &b) const
+COMPLEX operator-(const COMPLEX &a, const double &b)
 {
   COMPLEX result;
-  result.Re = Re - b;
-  result.Im = Im;
+  result.Re = a.Re - b;
+  result.Im = a.Im;
   return result;
 }
 COMPLEX operator-(const double &x, const COMPLEX &b)
 {
   COMPLEX result;
-
   result.Re = x - b.Re;
   result.Im = b.Im;
-
   return result;
 }
-
-/*    OUTPUT: Exercise_11.cpp
-===========Operator addition==========
-Result of (8 + 1i) + (2 + 3i) = (10 + 4i)
-Result of (8 + 1i) + (5.5) = (13.5 + 1i)
-Result of (3.3) + (8 + 1i) = (11.3 + 1i)
-
-
-=======Operator Subtraction==========
-Result of (8 + 1i) - (2 + 3i) = (6 + -2i)
-Result of (8 + 1i) - (5.5) = (2.5 + 1i)
-Result of (3.3) - (8 + 1i) = (-4.7 + 1i)
-*/

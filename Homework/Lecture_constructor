@@ -17,25 +17,11 @@ What is a copy constructor?
 A copy constructor is a member function which initializes an object using another object of the same class. A copy constructor has the following general function prototype:
 ClassName (const ClassName &old_obj); 
 
+An lvalue (so-called, historically, because lvalues could appear on the left-hand side of an assignment expression) designates a function or an object. [Example: If E is an expression of pointer type, then *E is an lvalue expression referring to the object or function to which E points. As another example, the result of calling a function whose return type is an lvalue reference is an lvalue.]
 
-"/usr/include",
-                "/usr/local/include",
-                "${workspaceRoot}",
-                "/usr/local/include/c++/*",
-                "/usr/include/c++/7.3.1",
-                "/usr/include/c++/7.3.1/x86_64-pc-linux-gnu",
-                "/usr/include/c++/v1",
-                "/usr/include/linux"
+An xvalue (an “eXpiring” value) also refers to an object, usually near the end of its lifetime (so that its resources may be moved, for example). An xvalue is the result of certain kinds of expressions involving rvalue references. [Example: The result of calling a function whose return type is an rvalue reference is an xvalue.]
+A glvalue (“generalized” lvalue) is an lvalue or an xvalue.
 
-"name": "Linux",
-    "includePath": [
-        "/usr/include/c++/7",
-        "/usr/include/x86_64-linux-gnu/c++/7",
-        "/usr/include/c++/7/backward",
-        "/usr/lib/gcc/x86_64-linux-gnu/7/include",
-        "/usr/local/include",
-        "/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed",
-        "/usr/include/x86_64-linux-gnu",
-        "/usr/include",
-        "/usr/bin/g++",
-        "${workspaceRoot}"
+An rvalue (so-called, historically, because rvalues could appear on the right-hand side of an assignment expression) is an xvalue, a temporary object or subobject thereof, or a value that is not associated with an object.
+
+A prvalue (“pure” rvalue) is an rvalue that is not an xvalue. [Example: The result of calling a function whose return type is not a reference is a prvalue]
