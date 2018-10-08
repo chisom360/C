@@ -11,8 +11,8 @@ class objectArea
     //constructor 1
     objectArea(int length, int width);
     objectArea(objectArea &c); // copy constructor
-    int Area();                //function prototype
-    int Perimeter();           // function prototype
+    int Area() const;          //function prototype
+    int Perimeter() const;     // function prototype
     void printObject();
     objectArea(int length); //constructor 2
 
@@ -28,12 +28,12 @@ void objectArea::printObject()
 {
     cout << "Print the address of this pointer: " << &*this << endl;
 }
-int objectArea::Perimeter()
+int objectArea::Perimeter() const
 {
     return 2 * (length + width);
 }
 
-int objectArea::Area()
+int objectArea::Area() const
 {
     return this->length * width;
 }
@@ -64,9 +64,10 @@ objectArea::objectArea(objectArea &c)
 
 ostream &operator<<(ostream &output, const objectArea &c)
 {
+
     output << "Length: " << c.length << " and  Width: " << c.width << endl;
-    output << "Area: " << c.length * c.width << endl;
-    output << "Perimeter: " << 2 * (c.length + c.width) << endl;
+    output << "Area: " << c.Area() << endl;
+    output << "Perimeter: " << c.Perimeter() << endl;
     output << "cube: " << c.length * c.length * c.length << endl;
     output << "\n\n";
     return output;
