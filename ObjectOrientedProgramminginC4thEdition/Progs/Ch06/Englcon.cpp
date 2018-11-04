@@ -1,57 +1,54 @@
-// englcon.cpp
-// constructors, adds objects using member function
 #include <iostream>
 using namespace std;
-////////////////////////////////////////////////////////////////
-class Distance                     //English Distance class
-   {
-   private:
-      int feet;
-      float inches;
-   public:                         //constructor (no args)
-      Distance() : feet(0), inches(0.0)                   
-         {  }
-                                   //constructor (two args)
-      Distance(int ft, float in)  : feet(ft), inches(in)
-         {  }
 
-      void getdist()               //get length from user
-         {
-         cout << "\nEnter feet: ";  cin >> feet;
-         cout << "Enter inches: ";  cin >> inches;
-         }
+class Distance
+{
+  private:
+    int feet;
+    float inches;
 
-      void showdist()              //display distance
-         { cout << feet << "\'-" << inches << '\"'; }
-
-      void add_dist(Distance,  Distance) const;    //declaration
-   };
-//--------------------------------------------------------------
-                                   //add lengths d2 and d3
-void Distance::add_dist(Distance d2,  Distance d3) const
-   {
-   inches = d2.inches + d3.inches; //add the inches
-   feet = 0;                       //(for possible carry)
-   if(inches >= 12.0)              //if total exceeds 12.0,
-      {                            //then decrease inches
-      inches -= 12.0;              //by 12.0 and
-      feet++;                      //increase feet
-      }                            //by 1
-   feet += d2.feet + d3.feet;      //add the feet
-   }
-////////////////////////////////////////////////////////////////
-int main()
+  public:
+    void setdist(int ft, float in)
     {
-   Distance dist1, dist3;          //define two lengths
-   Distance dist2(11, 6.25);       //define and initialize dist2
+        feet = ft;
+        inches = in;
+    }
+    Distance add(Distance);
+    void disp();
+};
 
-   dist1.getdist();                //get dist1 from user
-   dist3.add_dist(dist1, dist2);   //dist3 = dist1 + dist2
+Distance Distance::add(Distance D)
+{
+    Distance t;
+    t.inches = inches + D.inches;
+    t.feet = 0;
+    if (t.inches >= 12.0)
+    {
+        t.inches -= 12.0;
+        t.feet++;
+    }
+    t.feet += feet + D.feet;
+    return t;
+}
 
-                                   //display all lengths
-   cout << "\ndist1 = ";  dist1.showdist();
-   cout << "\ndist2 = ";  dist2.showdist();
-   cout << "\ndist3 = ";  dist3.showdist();
-   cout << endl;
-   return 0;
-   }
+void Distance::disp()
+{
+    cout << feet << "\'" << inches << "\" ";
+}
+
+int main()
+{
+    Distance d1, d2, d3;
+    d1.setdist(10, 7.1);
+    d2.setdist(23, 5.5);
+    d3 = d1.add(d2);
+
+    cout << "\n distance 1 = ";
+    d1.disp();
+    cout << "\n distance 2 = ";
+    d2.disp();
+    cout << "\n distance 3 = ";
+    d3.disp();
+
+    return 0;
+}
