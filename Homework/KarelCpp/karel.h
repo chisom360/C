@@ -15,11 +15,12 @@ enum direction
 class ur_Robot
 {
 private:
+  direction locateRobot;
   int westWall = 1;
   int southWall = 1;
   int x, y, beeperCount;
   bool karelState = true;
-  direction locateRobot;
+
   std::string setDirection = " ";
 
 public:
