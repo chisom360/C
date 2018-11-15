@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/SquareRoot.cpp_UT.dir/SquareRoot.cpp_UT.cpp.o  -o SquareRoot.cpp_UT -Wl,-Bstatic -lgtest -Wl,-Bdynamic -lpthread 

@@ -94,4 +94,6 @@ Intersection Intersection::intersectInfo()
     }
 
     return Intersection(Intersect_xCoordinate, Intersect_yCoordinate, beeperPresent, facingDirection);
+
+
 }
