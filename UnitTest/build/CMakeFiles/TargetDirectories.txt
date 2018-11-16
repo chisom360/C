@@ -1,4 +1,0 @@
-/home/bigshow360/Documents/C++/UnitTest/build/CMakeFiles/edit_cache.dir
-/home/bigshow360/Documents/C++/UnitTest/build/CMakeFiles/rebuild_cache.dir
-/home/bigshow360/Documents/C++/UnitTest/build/CMakeFiles/SquareRoot.cpp_UT.dir
-/home/bigshow360/Documents/C++/UnitTest/build/CMakeFiles/test.dir
