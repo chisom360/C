@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/SquareRoot_UT.dir/SquareRoot_UT.cpp.o  -o UnitTestBin/SquareRoot_UT -Wl,--start-group -lgtest -lgtest_main -Wl,--start-group -lpthread 
