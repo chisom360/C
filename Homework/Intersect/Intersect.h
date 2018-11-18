@@ -1,7 +1,7 @@
 #ifndef Intersect_H
 #define Intersect_H
 
-/*
+/**
 ******************************************************************
 * this program keeps track of information in an intersection     *
 * 1) Location                                                    *
@@ -13,42 +13,52 @@
 ******************************************************************
 */
 
-const int arraySize = 4; // WallPresentOnIntersect arraysize
+/**
+ * @param WallPresentOnIntersect arraysize
+ */
+
+const int arraySize = 4;
 
 enum Wall
 {
-    North = 0,
-    South,
-    East,
-    West,
+  North = 0,
+  South,
+  East,
+  West,
 };
 
 class Intersection
 {
-  private:
-    Wall facingDirection;
+private:
+  Wall facingDirection;
+  /**
+   * initialize the WallPresentOnIntersect with zero (false)
+   *  @param WallPresentOnIntersect[0] North wall,
+   * @param WallPresentOnIntersect[1] South wall,
+   * @param WallPresentOnIntersect[2] East wall,
+   * @param WallPresentOnIntersect[3] West wall
+   */
 
-    // initialize the WallPresentOnIntersect with zero (false)
-    // WallPresentOnIntersect[0] North wall,
-    // WallPresentOnIntersect[1] South wall,
-    // WallPresentOnIntersect[2] East wall,
-    // WallPresentOnIntersect[3] West wall
-    bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 1}; // for debug
-    // bool WallPresentOnIntersect[arraySize] = {false};
-    int Intersect_xCoordinate;
-    int Intersect_yCoordinate;
-    bool beeperPresent = false;
-    bool wallPresent = false;
-    int numOfBeeperOnIntersect = 1;
-    // std::string setDirection = " ";
+  bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 1};
 
-  public:
-    Intersection(); // constructor with no arg
-    Intersection intersectInfo();
-    Intersection(int &x, int &y, bool Beeper, Wall &direction); // constructor with arg
-    void print();
-    bool checkForBeeper();
-    bool IntersectNextToSouthWall();
-    bool IntersectNextToWestWall();
+  // bool WallPresentOnIntersect[arraySize] = {false};
+  int Intersect_xCoordinate;
+  int Intersect_yCoordinate;
+  bool beeperPresent = false;
+  bool wallPresent = false;
+  int numOfBeeperOnIntersect = 1;
+  // std::string setDirection = " ";
+
+public:
+  Intersection(); // constructor with no arg
+  Intersection intersectInfo();
+  /**
+   * constructor with arg
+   */
+  Intersection(int &x, int &y, bool Beeper, Wall &direction);
+  void print();
+  bool checkForBeeper();
+  bool IntersectNextToSouthWall();
+  bool IntersectNextToWestWall();
 };
 #endif
