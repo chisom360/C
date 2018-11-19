@@ -1,0 +1,22 @@
+===========Operator addition==========
+Result of 8-9i + (-8-2i) = 0-11i
+Result of 8-9i + (-8) = 0-9i
+Result of (-8) + (8-9i) = 0-9i
+
+
+=======Operator Subtraction==========
+Result of 8-9i - (-8-2i) = 16-7i
+Result of 8-9i - (-8) = 16-9i
+Result of (-8) - (8-9i) = -16+9i
+
+
+=======Operator Multiplication==========
+Result of 8-9i * (-8-2i) = -82+56i
+Result of 8-9i * (-8) = -64+72i
+Result of (-8) * (8-9i) = -64+72i
+
+
+===========Operator Division==========
+Result of 8-9i / (-8-2i) = -0.676471+1.29412i
+Result of 8-9i / (-8) = -1+1.125i
+Result of (-8) / (-8-2i) = 0.941176-0.235294i

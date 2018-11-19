@@ -2,15 +2,15 @@
 
 using namespace std;
 
-void rawPutChar(const char* data, int charIndex)
+void rawPutChar(const char *data, int charIndex)
 {
 	cout.put(data[charIndex]);
 }
 
 int main()
 {
-	const char* mystr = "hello";
-	rawPutChar(mystr, 1);
+	const char *mystr = "hello";
+	rawPutChar(mystr, 9);
 
 	return 0;
 }

@@ -1,5 +1,8 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
+#include <iostream>
+
+using std::ostream;
 
 struct COMPLEX
 {
@@ -25,6 +28,7 @@ struct COMPLEX
     COMPLEX operator*(const COMPLEX &b) const;
     COMPLEX operator*(const double &b) const;
     friend COMPLEX operator*(const double &x, const COMPLEX &b);
+    friend ostream &operator<<(ostream &, const COMPLEX &);
 };
 
 // print function prototype
