@@ -30,7 +30,7 @@ enum Wall
 class Intersection
 {
 private:
-  Wall facingDirection;
+  Wall Direction;
   /**
    * initialize the WallPresentOnIntersect with zero (false)
    *  @param WallPresentOnIntersect[0] North wall,
@@ -46,7 +46,7 @@ private:
   int Intersect_yCoordinate;
   bool beeperPresent = false;
   bool wallPresent = false;
-  int numOfBeeperOnIntersect = 1;
+  int numOfBeeperOnIntersect = 0;
   // std::string setDirection = " ";
 
 public:
@@ -60,5 +60,9 @@ public:
   bool checkForBeeper();
   bool IntersectNextToSouthWall();
   bool IntersectNextToWestWall();
+  bool facingNorth();
+  bool facingSouth();
+  bool facingEast();
+  bool facingWest();
 };
 #endif
