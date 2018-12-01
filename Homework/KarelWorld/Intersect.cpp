@@ -28,7 +28,7 @@ bool Intersection::IntersectNextToWestWall()
 {
     if (Intersect_xCoordinate == 1)
     {
-        wallPresent = true;
+
         return true;
     }
     else if (Intersect_xCoordinate > 1)
@@ -43,7 +43,6 @@ bool Intersection::IntersectNextToSouthWall()
 {
     if (Intersect_yCoordinate == 1)
     {
-        wallPresent = true;
         return true;
     }
     else if (Intersect_yCoordinate > 1)
@@ -75,34 +74,30 @@ Intersection Intersection::intersectInfo()
     if (WallPresentOnIntersect[North] == 1)
     {
         std::cout << "There is a North facing wall" << std::endl;
-        wallPresent = true;
     }
     if (WallPresentOnIntersect[South] == 1 || IntersectNextToSouthWall() == true)
     {
         std::cout << "There is a South facing wall" << std::endl;
-        wallPresent = true;
     }
     if (WallPresentOnIntersect[East] == 1)
     {
         std::cout << "There is a East facing wall" << std::endl;
-        wallPresent = true;
     }
     if (WallPresentOnIntersect[West] == 1 || IntersectNextToWestWall() == true)
     {
         std::cout << "There is a West facing wall" << std::endl;
-        wallPresent = true;
     }
 
     return Intersection(Intersect_xCoordinate, Intersect_yCoordinate, beeperPresent, Direction);
 }
 
-bool Intersection::facingNorth()
+bool Intersection::northFacingWall()
 {
-    if (Direction == North)
+    if (Direction == North && WallPresentOnIntersect[North] == 1)
     {
         return true;
     }
-    else if (Direction != North)
+    else if (Direction != North || WallPresentOnIntersect[North] == 1)
     {
         return false;
     }
@@ -110,7 +105,7 @@ bool Intersection::facingNorth()
     return Direction;
 }
 
-bool Intersection::facingSouth()
+bool Intersection::southFacingWall()
 {
     if (Direction == South)
     {
@@ -124,7 +119,7 @@ bool Intersection::facingSouth()
     return Direction;
 }
 
-bool Intersection::facingEast()
+bool Intersection::eastFacingWall()
 {
     if (Direction == East)
     {
@@ -138,7 +133,7 @@ bool Intersection::facingEast()
     return Direction;
 }
 
-bool Intersection::facingWest()
+bool Intersection::westFacingWall()
 {
     if (Direction == West)
     {
