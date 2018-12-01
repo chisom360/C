@@ -1,15 +1,12 @@
 #include <iostream>
 #include "Intersect.h"
 
-Intersection::Intersection(int &x, int &y, bool Beeper, Wall &direction)
-    : Intersect_xCoordinate(x), Intersect_yCoordinate(y), beeperPresent(false), Direction(direction)
+Intersection::Intersection()
+    : Intersect_xCoordinate(1), Intersect_yCoordinate(23)
 {
 }
 
-Intersection::Intersection()
-    : Intersect_xCoordinate(1), Intersect_yCoordinate(23), Direction(East)
-{
-}
+// check for beeper on an intersect
 bool Intersection::checkForBeeper()
 {
     if (numOfBeeperOnIntersect == 0)
@@ -23,7 +20,11 @@ bool Intersection::checkForBeeper()
     return beeperPresent;
 }
 
-// check to see if intersect is next to West wall
+/**check to see if intersect is next to West wall boundary
+ * if intersect is anywere on (1, n) coresponding to (x,y)
+ * @param IntersectNextToWestWall() returns true
+ * else return false
+ */
 bool Intersection::IntersectNextToWestWall()
 {
     if (Intersect_xCoordinate == 1)
@@ -38,7 +39,11 @@ bool Intersection::IntersectNextToWestWall()
     return 0;
 }
 
-// Check to see if intersect is next to south wall
+/**check to see if intersect is next to West wall boundary
+ * if intersect is anywere on (n, 1) coresponding to (x,y)
+ * @param IntersectNextToSouthWall() returns true
+ * else return false
+ */
 bool Intersection::IntersectNextToSouthWall()
 {
     if (Intersect_yCoordinate == 1)
@@ -54,95 +59,72 @@ bool Intersection::IntersectNextToSouthWall()
 
 void Intersection::print()
 {
-    intersectInfo();
     std::cout << "Is beeper present(No = 0, Yes = 1)? " << checkForBeeper() << std::endl;
     std::cout << "X coordinate: " << Intersect_xCoordinate << std::endl;
     std::cout << "Y coordinate: " << Intersect_yCoordinate << std::endl;
-    std::cout << "Facing Direction: " << Direction << std::endl;
-    std::cout << "direction: " << Direction << std::endl;
     std::cout << "West wall check: " << IntersectNextToWestWall() << std::endl;
+    std::cout << "North wall check: " << northFacingWall() << std::endl;
+    std::cout << "south wall check: " << southFacingWall() << std::endl;
+    std::cout << "East wall check: " << eastFacingWall() << std::endl;
+    std::cout << "West wall check: " << westFacingWall() << std::endl;
 }
 
-// this function checks to see what is on the intersect
-Intersection Intersection::intersectInfo()
+// check for north facing wall on intersect
+bool Intersection::northFacingWall()
 {
-    /**
-     * call checkForBeeper() so that it can set the beeperPresent flag
-     * @param The state of beeperPresent is then returned at the end of this function call
-     */
-    checkForBeeper();
     if (WallPresentOnIntersect[North] == 1)
     {
         std::cout << "There is a North facing wall" << std::endl;
+        return true;
     }
+    else if (WallPresentOnIntersect[North] == 0)
+    {
+        return false;
+    }
+    return WallPresentOnIntersect[North];
+}
+
+// check for south facing wall on intersect
+bool Intersection::southFacingWall()
+{
     if (WallPresentOnIntersect[South] == 1 || IntersectNextToSouthWall() == true)
     {
         std::cout << "There is a South facing wall" << std::endl;
+        return true;
     }
+    else if (WallPresentOnIntersect[South] != 1 || IntersectNextToSouthWall() == false)
+    {
+        return false;
+    }
+    return WallPresentOnIntersect[South];
+}
+
+// check for east facing wall on intersect
+bool Intersection::eastFacingWall()
+{
     if (WallPresentOnIntersect[East] == 1)
     {
         std::cout << "There is a East facing wall" << std::endl;
+        return true;
     }
+    else if (WallPresentOnIntersect[East] != 1)
+    {
+        return false;
+    }
+    return WallPresentOnIntersect[East];
+}
+
+// check for west facing wall on intersect
+bool Intersection::westFacingWall()
+{
     if (WallPresentOnIntersect[West] == 1 || IntersectNextToWestWall() == true)
     {
         std::cout << "There is a West facing wall" << std::endl;
-    }
-
-    return Intersection(Intersect_xCoordinate, Intersect_yCoordinate, beeperPresent, Direction);
-}
-
-bool Intersection::northFacingWall()
-{
-    if (Direction == North && WallPresentOnIntersect[North] == 1)
-    {
         return true;
     }
-    else if (Direction != North || WallPresentOnIntersect[North] == 1)
+    else if (WallPresentOnIntersect[West] != 1 || IntersectNextToWestWall() == false)
     {
         return false;
     }
-
-    return Direction;
-}
-
-bool Intersection::southFacingWall()
-{
-    if (Direction == South)
-    {
-        return true;
-    }
-    else if (Direction != South)
-    {
-        return false;
-    }
-
-    return Direction;
-}
-
-bool Intersection::eastFacingWall()
-{
-    if (Direction == East)
-    {
-        return true;
-    }
-    else if (Direction != East)
-    {
-        return false;
-    }
-
-    return Direction;
-}
-
-bool Intersection::westFacingWall()
-{
-    if (Direction == West)
-    {
-        return true;
-    }
-    else if (Direction != West)
-    {
-        return false;
-    }
-
-    return Direction;
+    return WallPresentOnIntersect[West];
 }

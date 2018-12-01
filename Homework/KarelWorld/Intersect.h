@@ -30,7 +30,6 @@ enum Wall
 class Intersection
 {
 private:
-  Wall Direction;
   /**
    * initialize the WallPresentOnIntersect with zero (false)
    *  @param WallPresentOnIntersect[0] North wall,
@@ -40,20 +39,15 @@ private:
    */
 
   bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 1};
-
-  // bool WallPresentOnIntersect[arraySize] = {false};
   int Intersect_xCoordinate;
   int Intersect_yCoordinate;
-  int numOfBeeperOnIntersect = 1;
+  int numOfBeeperOnIntersect = 0;
   bool beeperPresent = false;
 
 public:
   Intersection(); // constructor with no arg
   Intersection intersectInfo();
-  /**
-   * constructor with arg
-   */
-  Intersection(int &x, int &y, bool Beeper, Wall &direction);
+
   void print();
   bool checkForBeeper();
   bool IntersectNextToSouthWall();
