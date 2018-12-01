@@ -72,5 +72,4 @@ int main()
 		std::cout << 1 << ' '; // the loop variable need not be used
 	std::cout << '\n';
 }
-
 */

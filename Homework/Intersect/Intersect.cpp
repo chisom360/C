@@ -12,13 +12,14 @@ Intersection::Intersection()
 }
 bool Intersection::checkForBeeper()
 {
-    if ((beeperPresent == false) && (numOfBeeperOnIntersect == 0))
+    if (numOfBeeperOnIntersect == 0)
     {
-        return false;
+
+        return beeperPresent = false;
     }
-    else if ((beeperPresent == true) || (numOfBeeperOnIntersect > 0))
+    else if (numOfBeeperOnIntersect > 0)
     {
-        return true;
+        return beeperPresent = true;
     }
 
     return beeperPresent;
@@ -94,6 +95,4 @@ Intersection Intersection::intersectInfo()
     }
 
     return Intersection(Intersect_xCoordinate, Intersect_yCoordinate, beeperPresent, facingDirection);
-
-
 }
