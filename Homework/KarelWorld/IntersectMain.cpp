@@ -2,7 +2,7 @@
 #include "Intersect.h"
 int main()
 {
-    Intersection intersectClassObject;
+    Intersection intersectClassObject(1, 1);
 
     intersectClassObject.print();
 

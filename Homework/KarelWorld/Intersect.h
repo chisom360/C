@@ -41,20 +41,16 @@ private:
   bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 1};
   int Intersect_xCoordinate;
   int Intersect_yCoordinate;
-  int numOfBeeperOnIntersect = 0;
-  bool beeperPresent = false;
+  int numOfBeeperOnIntersect = 8;
 
 public:
-  Intersection(); // constructor with no arg
   Intersection intersectInfo();
+  Intersection(int street, int Avenue);
 
   void print();
   bool checkForBeeper();
   bool IntersectNextToSouthWall();
   bool IntersectNextToWestWall();
-  bool northFacingWall();
-  bool southFacingWall();
-  bool eastFacingWall();
-  bool westFacingWall();
+  bool wallTo(Wall dir);
 };
 #endif
