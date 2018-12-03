@@ -61,26 +61,13 @@ void Intersection::print()
     std::cout << "Is beeper present(No = 0, Yes = 1)? " << checkForBeeper() << std::endl;
     std::cout << "X coordinate: " << Intersect_xCoordinate << std::endl;
     std::cout << "Y coordinate: " << Intersect_yCoordinate << std::endl;
-    std::cout << "Wall Present Check: " << Intersection::wallTo(North) << std::endl;
+    std::cout << "Wall Present Check (N:S:E:W): " << wallTo(North) << ':'
+              << wallTo(South) << ':'
+              << wallTo(East) << ':'
+              << wallTo(West) << std::endl;
 }
 
 bool Intersection::wallTo(Wall direction)
 {
-    if (direction == North)
-    {
-        return WallPresentOnIntersect[direction];
-    }
-    if (direction == South)
-    {
-        return (WallPresentOnIntersect[direction] || IntersectNextToSouthWall());
-    }
-    if (direction == East)
-    {
-        return WallPresentOnIntersect[direction];
-    }
-    if (direction == West)
-    {
-        return (WallPresentOnIntersect[direction] || IntersectNextToWestWall());
-    }
-    return direction;
+    return WallPresentOnIntersect[direction];
 }

@@ -1,10 +1,11 @@
 #include <iostream>
+#include "KarelWorld.h"
 #include "Intersect.h"
-int main()
-{
-    Intersection intersectClassObject(1, 1);
 
-    intersectClassObject.print();
+int main()
+
+{
+    karelWorld w;
 
     return 0;
 }
