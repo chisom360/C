@@ -1,153 +1,107 @@
 #include <iostream>
 #include "Intersect.h"
 
-Intersection::Intersection(int &x, int &y, bool Beeper, Wall &direction)
-    : Intersect_xCoordinate(x), Intersect_yCoordinate(y), beeperPresent(false), Direction(direction)
+Intersection::Intersection(int street, int Avenue)
 {
+    Intersect_yCoordinate = Avenue;
+    Intersect_xCoordinate = street;
 }
 
-Intersection::Intersection()
-    : Intersect_xCoordinate(1), Intersect_yCoordinate(23), Direction(East)
+Intersection::Intersection(int street, int Avenue, int beeperCnt)
 {
+    Intersect_yCoordinate = Avenue;
+    Intersect_xCoordinate = street;
+    numOfBeeperOnIntersect = beeperCnt;
 }
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection)
+{
+    Intersect_yCoordinate = Avenue;
+    Intersect_xCoordinate = street;
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection)
+{
+    Intersect_yCoordinate = Avenue;
+    Intersect_xCoordinate = street;
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+    WallPresentOnIntersect[secondDirection] = 1;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection)
+{
+    Intersect_yCoordinate = Avenue;
+    Intersect_xCoordinate = street;
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+    WallPresentOnIntersect[secondDirection] = 1;
+    WallPresentOnIntersect[thirdDirection] = 1;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection, Wall forthDirection)
+{
+    Intersect_yCoordinate = Avenue;
+    Intersect_xCoordinate = street;
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+    WallPresentOnIntersect[secondDirection] = 1;
+    WallPresentOnIntersect[thirdDirection] = 1;
+    WallPresentOnIntersect[forthDirection] = 1;
+}
+
+int Intersection::putBeeper()
+{
+    //increments the number of numOfBeeperOnIntersect
+    numOfBeeperOnIntersect = numOfBeeperOnIntersect + 1;
+
+    return numOfBeeperOnIntersect;
+}
+
+int Intersection::pickBeeper()
+{
+    if (numOfBeeperOnIntersect > 0)
+    {
+        numOfBeeperOnIntersect = numOfBeeperOnIntersect - 1;
+        return numOfBeeperOnIntersect;
+    }
+    if (numOfBeeperOnIntersect == 0)
+    {
+        return numOfBeeperOnIntersect;
+    }
+    return numOfBeeperOnIntersect;
+}
+
+// check for beeper on an intersect
 bool Intersection::checkForBeeper()
 {
     if (numOfBeeperOnIntersect == 0)
     {
-        return beeperPresent = false;
+        return false;
     }
     else if (numOfBeeperOnIntersect > 0)
     {
-        return beeperPresent = true;
-    }
-    return beeperPresent;
-}
-
-// check to see if intersect is next to West wall
-bool Intersection::IntersectNextToWestWall()
-{
-    if (Intersect_xCoordinate == 1)
-    {
-        wallPresent = true;
         return true;
     }
-    else if (Intersect_xCoordinate > 1)
-    {
-        return false;
-    }
-    return 0;
+    return numOfBeeperOnIntersect;
 }
 
-// Check to see if intersect is next to south wall
-bool Intersection::IntersectNextToSouthWall()
+bool Intersection::wallTo(Wall direction)
 {
-    if (Intersect_yCoordinate == 1)
-    {
-        wallPresent = true;
-        return true;
-    }
-    else if (Intersect_yCoordinate > 1)
-    {
-        return false;
-    }
-    return 0;
+    return WallPresentOnIntersect[direction];
 }
 
 void Intersection::print()
 {
-    intersectInfo();
+    std::cout << "Number of Beeper: " << numOfBeeperOnIntersect << std::endl;
     std::cout << "Is beeper present(No = 0, Yes = 1)? " << checkForBeeper() << std::endl;
     std::cout << "X coordinate: " << Intersect_xCoordinate << std::endl;
     std::cout << "Y coordinate: " << Intersect_yCoordinate << std::endl;
-    std::cout << "Facing Direction: " << Direction << std::endl;
-    std::cout << "direction: " << Direction << std::endl;
-    std::cout << "West wall check: " << IntersectNextToWestWall() << std::endl;
-}
-
-// this function checks to see what is on the intersect
-Intersection Intersection::intersectInfo()
-{
-    /**
-     * call checkForBeeper() so that it can set the beeperPresent flag
-     * @param The state of beeperPresent is then returned at the end of this function call
-     */
-    checkForBeeper();
-    if (WallPresentOnIntersect[North] == 1)
-    {
-        std::cout << "There is a North facing wall" << std::endl;
-        wallPresent = true;
-    }
-    if (WallPresentOnIntersect[South] == 1 || IntersectNextToSouthWall() == true)
-    {
-        std::cout << "There is a South facing wall" << std::endl;
-        wallPresent = true;
-    }
-    if (WallPresentOnIntersect[East] == 1)
-    {
-        std::cout << "There is a East facing wall" << std::endl;
-        wallPresent = true;
-    }
-    if (WallPresentOnIntersect[West] == 1 || IntersectNextToWestWall() == true)
-    {
-        std::cout << "There is a West facing wall" << std::endl;
-        wallPresent = true;
-    }
-
-    return Intersection(Intersect_xCoordinate, Intersect_yCoordinate, beeperPresent, Direction);
-}
-
-bool Intersection::facingNorth()
-{
-    if (Direction == North)
-    {
-        return true;
-    }
-    else if (Direction != North)
-    {
-        return false;
-    }
-
-    return Direction;
-}
-
-bool Intersection::facingSouth()
-{
-    if (Direction == South)
-    {
-        return true;
-    }
-    else if (Direction != South)
-    {
-        return false;
-    }
-
-    return Direction;
-}
-
-bool Intersection::facingEast()
-{
-    if (Direction == East)
-    {
-        return true;
-    }
-    else if (Direction != East)
-    {
-        return false;
-    }
-
-    return Direction;
-}
-
-bool Intersection::facingWest()
-{
-    if (Direction == West)
-    {
-        return true;
-    }
-    else if (Direction != West)
-    {
-        return false;
-    }
-
-    return Direction;
+    std::cout << "Wall Present Check (N:S:E:W): " << wallTo(North) << ':'
+              << wallTo(South) << ':'
+              << wallTo(East) << ':'
+              << wallTo(West) << '\n'
+              << std::endl;
 }

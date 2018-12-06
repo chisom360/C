@@ -10,7 +10,7 @@ private:
 
 public:
   karelWorld();
-  int hasCorner(int street, int avenue);
+  bool hasCorner(int street, int avenue);
   int getBeeperCount(int street, int avenue);
   int incrementBeeperCount(int street, int avenue);
   int decrementBeeperCount(int street, int avenue);

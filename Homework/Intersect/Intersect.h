@@ -30,7 +30,6 @@ enum Wall
 class Intersection
 {
 private:
-  Wall Direction;
   /**
    * initialize the WallPresentOnIntersect with zero (false)
    *  @param WallPresentOnIntersect[0] North wall,
@@ -39,30 +38,23 @@ private:
    * @param WallPresentOnIntersect[3] West wall
    */
 
-  bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 1};
-
-  // bool WallPresentOnIntersect[arraySize] = {false};
+  bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 0};
   int Intersect_xCoordinate;
   int Intersect_yCoordinate;
-  bool beeperPresent = false;
-  bool wallPresent = false;
   int numOfBeeperOnIntersect = 0;
-  // std::string setDirection = " ";
 
 public:
-  Intersection(); // constructor with no arg
-  Intersection intersectInfo();
-  /**
-   * constructor with arg
-   */
-  Intersection(int &x, int &y, bool Beeper, Wall &direction);
   void print();
+  Intersection(int street, int Avenue);
+  Intersection(int street, int Avenue, int beeperCnt);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection, Wall forthDirection);
+
   bool checkForBeeper();
-  bool IntersectNextToSouthWall();
-  bool IntersectNextToWestWall();
-  bool facingNorth();
-  bool facingSouth();
-  bool facingEast();
-  bool facingWest();
+  bool wallTo(Wall dir);
+  int putBeeper();
+  int pickBeeper();
 };
 #endif

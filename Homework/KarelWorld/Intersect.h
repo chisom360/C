@@ -44,13 +44,11 @@ private:
   int numOfBeeperOnIntersect = 8;
 
 public:
-  Intersection intersectInfo();
-  Intersection(int street, int Avenue);
-
   void print();
+  Intersection(int street, int Avenue);
+  Intersection(int street, int Avenue, int &beeperCnt);
+
   bool checkForBeeper();
-  bool IntersectNextToSouthWall();
-  bool IntersectNextToWestWall();
   bool wallTo(Wall dir);
 };
 #endif
