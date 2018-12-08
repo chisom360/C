@@ -38,17 +38,26 @@ private:
    * @param WallPresentOnIntersect[3] West wall
    */
 
-  bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 1};
-  int Intersect_xCoordinate;
-  int Intersect_yCoordinate;
-  int numOfBeeperOnIntersect = 8;
+  bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 0};
+  int mAvenue;
+  int mStreet;
+  int numOfBeeperOnIntersect = 0;
 
 public:
   void print();
   Intersection(int street, int Avenue);
-  Intersection(int street, int Avenue, int &beeperCnt);
+  Intersection(int street, int Avenue, int beeperCnt);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection);
+  Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection, Wall forthDirection);
 
   bool checkForBeeper();
   bool wallTo(Wall dir);
+  int putBeeper();
+  int pickBeeper();
+  int getStreet();
+  int getAvenue();
+  int getbeeperCount();
 };
 #endif

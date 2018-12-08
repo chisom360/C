@@ -39,8 +39,8 @@ private:
    */
 
   bool WallPresentOnIntersect[arraySize] = {0, 0, 0, 0};
-  int Intersect_xCoordinate;
-  int Intersect_yCoordinate;
+  int mAvenue;
+  int mStreet;
   int numOfBeeperOnIntersect = 0;
 
 public:
@@ -56,5 +56,8 @@ public:
   bool wallTo(Wall dir);
   int putBeeper();
   int pickBeeper();
+  int getStreet();
+  int getAvenue();
+  int getbeeperCount();
 };
 #endif

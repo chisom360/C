@@ -2,10 +2,124 @@
 #include "Intersect.h"
 
 Intersection::Intersection(int street, int Avenue)
-//    : Intersect_xCoordinate(Avenue), Intersect_yCoordinate(street)
 {
-    Intersect_xCoordinate = Avenue;
-    Intersect_yCoordinate = street;
+    mAvenue = Avenue;
+    mStreet = street;
+    if (Avenue == 1)
+    {
+        WallPresentOnIntersect[South] = 1;
+    }
+    if (street == 1)
+    {
+        WallPresentOnIntersect[West] = 1;
+    }
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt)
+{
+    mAvenue = Avenue;
+    mStreet = street;
+    if (Avenue == 1)
+    {
+        WallPresentOnIntersect[South] = 1;
+    }
+    if (street == 1)
+    {
+        WallPresentOnIntersect[West] = 1;
+    }
+    numOfBeeperOnIntersect = beeperCnt;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection)
+{
+    mAvenue = Avenue;
+    mStreet = street;
+    if (Avenue == 1)
+    {
+        WallPresentOnIntersect[South] = 1;
+    }
+    if (street == 1)
+    {
+        WallPresentOnIntersect[West] = 1;
+    }
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection)
+{
+    mAvenue = Avenue;
+    mStreet = street;
+    if (Avenue == 1)
+    {
+        WallPresentOnIntersect[South] = 1;
+    }
+    if (street == 1)
+    {
+        WallPresentOnIntersect[West] = 1;
+    }
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+    WallPresentOnIntersect[secondDirection] = 1;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection)
+{
+    mAvenue = Avenue;
+    mStreet = street;
+    if (Avenue == 1) //checks to see if intersect is next to south and west wall boundaries
+    {
+        WallPresentOnIntersect[South] = 1;
+    }
+    if (street == 1)
+    {
+        WallPresentOnIntersect[West] = 1;
+    }
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+    WallPresentOnIntersect[secondDirection] = 1;
+    WallPresentOnIntersect[thirdDirection] = 1;
+}
+
+Intersection::Intersection(int street, int Avenue, int beeperCnt, Wall firstDirection, Wall secondDirection, Wall thirdDirection, Wall forthDirection)
+{
+    mAvenue = Avenue;
+    mStreet = street;
+    if (Avenue == 1)
+    {
+        WallPresentOnIntersect[South] = 1;
+    }
+    if (street == 1)
+    {
+        WallPresentOnIntersect[West] = 1;
+    }
+    numOfBeeperOnIntersect = beeperCnt;
+    WallPresentOnIntersect[firstDirection] = 1;
+    WallPresentOnIntersect[secondDirection] = 1;
+    WallPresentOnIntersect[thirdDirection] = 1;
+    WallPresentOnIntersect[forthDirection] = 1;
+}
+
+int Intersection::putBeeper()
+{
+    //increments the number of numOfBeeperOnIntersect
+    numOfBeeperOnIntersect = numOfBeeperOnIntersect + 1;
+
+    return numOfBeeperOnIntersect;
+}
+
+int Intersection::pickBeeper()
+{
+    if (checkForBeeper() == true)
+    {
+        numOfBeeperOnIntersect = numOfBeeperOnIntersect - 1;
+        return numOfBeeperOnIntersect;
+    }
+    if (checkForBeeper() == false)
+    {
+        return numOfBeeperOnIntersect;
+    }
+    return numOfBeeperOnIntersect;
 }
 
 // check for beeper on an intersect
@@ -22,18 +136,25 @@ bool Intersection::checkForBeeper()
     return numOfBeeperOnIntersect;
 }
 
-void Intersection::print()
-{
-    std::cout << "Is beeper present(No = 0, Yes = 1)? " << checkForBeeper() << std::endl;
-    std::cout << "X coordinate: " << Intersect_xCoordinate << std::endl;
-    std::cout << "Y coordinate: " << Intersect_yCoordinate << std::endl;
-    std::cout << "Wall Present Check (N:S:E:W): " << wallTo(North) << ':'
-              << wallTo(South) << ':'
-              << wallTo(East) << ':'
-              << wallTo(West) << std::endl;
-}
-
 bool Intersection::wallTo(Wall direction)
 {
     return WallPresentOnIntersect[direction];
+}
+
+//returns beepercount
+int Intersection::getbeeperCount()
+{
+    return numOfBeeperOnIntersect;
+}
+
+//returns Avenue
+int Intersection::getAvenue()
+{
+    return mAvenue;
+}
+
+// returns street
+int Intersection::getStreet()
+{
+    return mStreet;
 }

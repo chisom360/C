@@ -2,6 +2,7 @@
 #define KarelWorld_H
 #include "Intersect.h"
 #include <vector>
+#include <algorithm>
 
 class karelWorld
 {
