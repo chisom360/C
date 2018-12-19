@@ -17,7 +17,6 @@ int main()
   karel.putBeeper();
   karel.putBeeper();
   karel.turnOff();
-
   karel.print();
 
   return 0;

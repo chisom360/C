@@ -18,15 +18,16 @@ private:
   direction locateRobot;
   int westWall = 1;
   int southWall = 1;
-  int x, y, beeperCount;
+  int KarelAvenue;
+  int KarelStreet;
+  int beeperCount = 0;
   bool karelState = true;
 
-  std::string setDirection = " ";
+  std::string setDirectionString = " ";
 
 public:
   //ur_Robot constructor
   ur_Robot(int xCoordinate, int yCoordinate, direction locateKarel, int BeepCnt);
-  friend std::ostream &operator<<(std::ostream &os, const ur_Robot &r);
   void print();
   void turnLeft();
   void move();
@@ -34,6 +35,13 @@ public:
   int pickBeeper();
   bool turnOff();
   void locateKarel();
+
+  //getter methods
+  bool getKarelState();
+  int getKarelBeeperCount();
+  int getKarelStreet();
+  int getKarelAvenue();
+  std::string getDirectionString();
 };
 
 #endif

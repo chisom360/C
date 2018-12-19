@@ -1,6 +1,30 @@
 #include <iostream>
 #include "karel.h"
 
+std::string ur_Robot::getDirectionString()
+{
+    return setDirectionString;
+}
+
+int ur_Robot::getKarelAvenue()
+{
+    return KarelAvenue;
+}
+
+int ur_Robot::getKarelStreet()
+{
+    return KarelStreet;
+}
+
+int ur_Robot::getKarelBeeperCount()
+{
+    return beeperCount;
+}
+
+bool ur_Robot::getKarelState()
+{
+    return karelState;
+}
 //move function definition
 //Checks to see if karel is off before moving and also checks to see if karel is next
 // to south or west wall
@@ -11,20 +35,29 @@ void ur_Robot::move()
 
     if (locateRobot == East)
     {
-        x += 1;
+        KarelAvenue += 1;
     }
 
-    else if ((locateRobot == South) && (y > southWall))
+    else if ((locateRobot == South) && (KarelStreet > southWall))
     {
-        y -= 1;
+        KarelStreet -= 1;
     }
-    else if ((locateRobot == West) && (x > westWall))
+    else if ((locateRobot == West) && (KarelAvenue > westWall))
     {
-        x -= 1;
+        KarelAvenue -= 1;
+    }
+
+    else if ((locateRobot == South) && (KarelStreet == southWall))
+    {
+        karelState = false; //turn off robot if it tries to run into southwall
+    }
+    else if ((locateRobot == West) && (KarelAvenue == westWall))
+    {
+        karelState = false; //turn off robot if it tries to run into westwall
     }
     else if (locateRobot == North)
     {
-        y += 1;
+        KarelStreet += 1;
     }
 }
 
@@ -53,35 +86,27 @@ void ur_Robot::turnLeft()
 }
 
 // locatekarel function checks the current enum values and assigns
-// coordinate to setDirection string depending on the enum values
+// coordinate to setDirectionString string depending on the enum values
 void ur_Robot::locateKarel()
 {
     if (locateRobot == 1)
     {
-        setDirection = "East";
+        setDirectionString = "East";
     }
     else if (locateRobot == 2)
     {
-        setDirection = "North";
+        setDirectionString = "North";
     }
     else if (locateRobot == 3)
     {
-        setDirection = "West";
+        setDirectionString = "West";
     }
     else if (locateRobot == 4)
     {
-        setDirection = "South";
+        setDirectionString = "South";
     }
 }
 
-//this tells the program how to print the output
-std::ostream &operator<<(std::ostream &os, const ur_Robot &r)
-{
-    os << "( " << r.x << "," << r.y << ","
-       << r.setDirection << "," << r.beeperCount
-       << "," << (r.karelState ? "On" : "Off") << ")";
-    return os;
-}
 // turnOff function definition
 // This inverts the karelState flag
 bool ur_Robot::turnOff()
@@ -93,21 +118,26 @@ bool ur_Robot::turnOff()
 void ur_Robot::print()
 {
     locateKarel();
-    std::cout << *this << std::endl;
+    std::cout << "(" << getKarelStreet() << ","
+              << getKarelAvenue() << ","
+              << getDirectionString() << ","
+              << getKarelBeeperCount() << ", "
+              << (getKarelState() ? "On" : "Off") << ")" << std::endl;
 }
 //PickBeeper function increments the number of beeper as long as the karel is ON
 int ur_Robot::pickBeeper()
 {
-    if (karelState == true)
+    if (karelState == true && beeperCount >= 1)
     {
         return beeperCount += 1;
     }
-    else
+    else if (beeperCount == 0)
     {
-        return beeperCount;
+        karelState = false; //turn off robot if karel tries to big beeper and there is no beeper
     }
+    return beeperCount;
 }
-//this function checks to see if there is any more beepers left in the beeper bag and if karel is On
+//this function checks to see if there is anKarelStreet more beepers left in the beeper bag and if karel is On
 // before putting down beepers
 int ur_Robot::putBeeper()
 {
@@ -115,14 +145,16 @@ int ur_Robot::putBeeper()
     {
         return beeperCount -= 1;
     }
-    else
+    else if (beeperCount == 0)
     {
-        return beeperCount;
+        //Turn off robot if karel tries to pickup a beeper when beeper count is 0
+        karelState = false;
     }
+    return beeperCount;
 }
 
 // constructor definition
 ur_Robot::ur_Robot(int xCoordinate, int yCoordinate, direction locateKarel, int BeepCnt)
-    : x(xCoordinate), y(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel)
+    : KarelAvenue(xCoordinate), KarelStreet(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel)
 {
 }
