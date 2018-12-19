@@ -11,7 +11,7 @@ karelWorld::karelWorld(std::vector<Intersection> IntersectionList)
     list = IntersectionList;
 }
 
-// loop through all the available containerin
+// loop through all the available container
 // checks to see if that intersection exist, if it does, then return the beeper count on that corner
 int karelWorld::getBeeperCount(int street, int avenue)
 {

@@ -1,0 +1,23 @@
+
+
+#///////////////////////////////////////////////////////////////////////////////////////
+cmake
+https://www.youtube.com/watch?v=aw9wHbFTnAQ
+
+google test 
+https://stackoverflow.com/questions/13513905/how-to-setup-googletest-as-a-shared-library-on-linux
+
+google test video
+https://www.youtube.com/watch?v=nbFXI9SDfbk
+
+goote tesrrunner setup
+https://github.com/nholthaus/gtest-runner/blob/master/FEATURES.md
+
+google test
+https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
+
+
+MUST read
+https://www.ibm.com/developerworks/aix/library/au-googletestingframework.html
+http://www.deanbodenham.com/learn/cpp-googletest-example3.html
+https://blog.jetbrains.com/rscpp/unit-testing-google-test/

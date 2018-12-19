@@ -18,5 +18,7 @@ int main()
     w.decrementBeeperCount(2, 6);
     w.print();
 
+    //w.print(2,6); use to print a specific intersection
+
     return 0;
 }
