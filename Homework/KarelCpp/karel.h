@@ -6,10 +6,11 @@
 
 enum direction
 {
+
   East = 1,
   North = 2,
   West = 3,
-  South = 4
+  South = 4,
 };
 
 class ur_Robot

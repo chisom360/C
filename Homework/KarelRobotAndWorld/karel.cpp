@@ -1,6 +1,8 @@
 #include <iostream>
 #include "karel.h"
 
+karelWorld ur_Robot::KarelAndWorld; //shared static variable
+
 std::string ur_Robot::getDirectionString()
 {
     return setDirectionString;
@@ -33,29 +35,29 @@ void ur_Robot::move()
     if (karelState == false)
         return;
 
-    if (locateRobot == East)
+    if (locateRobot == east)
     {
         KarelAvenue += 1;
     }
 
-    else if ((locateRobot == South) && (KarelStreet > southWall))
+    else if ((locateRobot == south) && (KarelStreet > southWall))
     {
         KarelStreet -= 1;
     }
-    else if ((locateRobot == West) && (KarelAvenue > westWall))
+    else if ((locateRobot == west) && (KarelAvenue > westWall))
     {
         KarelAvenue -= 1;
     }
 
-    else if ((locateRobot == South) && (KarelStreet == southWall))
+    else if ((locateRobot == south) && (KarelStreet == southWall))
     {
         karelState = false; //turn off robot if it tries to run into southwall
     }
-    else if ((locateRobot == West) && (KarelAvenue == westWall))
+    else if ((locateRobot == west) && (KarelAvenue == westWall))
     {
         karelState = false; //turn off robot if it tries to run into westwall
     }
-    else if (locateRobot == North)
+    else if (locateRobot == north)
     {
         KarelStreet += 1;
     }
@@ -66,22 +68,22 @@ void ur_Robot::turnLeft()
 {
     if (karelState == false)
         return;
-    if (locateRobot == East)
+    if (locateRobot == east)
     {
-        locateRobot = North;
+        locateRobot = north;
     }
 
-    else if (locateRobot == South)
+    else if (locateRobot == south)
     {
-        locateRobot = East;
+        locateRobot = east;
     }
-    else if (locateRobot == West)
+    else if (locateRobot == west)
     {
-        locateRobot = South;
+        locateRobot = south;
     }
-    else if (locateRobot == North)
+    else if (locateRobot == north)
     {
-        locateRobot = West;
+        locateRobot = west;
     }
 }
 
@@ -91,19 +93,19 @@ void ur_Robot::locateKarel()
 {
     if (locateRobot == 1)
     {
-        setDirectionString = "East";
+        setDirectionString = "east";
     }
     else if (locateRobot == 2)
     {
-        setDirectionString = "North";
+        setDirectionString = "north";
     }
     else if (locateRobot == 3)
     {
-        setDirectionString = "West";
+        setDirectionString = "west";
     }
     else if (locateRobot == 4)
     {
-        setDirectionString = "South";
+        setDirectionString = "south";
     }
 }
 
@@ -123,6 +125,7 @@ void ur_Robot::print()
               << getDirectionString() << ","
               << getKarelBeeperCount() << ", "
               << (getKarelState() ? "On" : "Off") << ")" << std::endl;
+    getKarelAndWorld();
 }
 //PickBeeper function increments the number of beeper as long as the karel is ON
 int ur_Robot::pickBeeper()

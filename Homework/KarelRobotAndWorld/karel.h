@@ -1,15 +1,15 @@
+#ifndef KAREL_H
+#define KAREL_H
+#include "KarelWorld.h"
 #include <iostream>
 #include <string>
 
-#ifndef KAREL_H
-#define KAREL_H
-
 enum direction
 {
-  East = 1,
-  North = 2,
-  West = 3,
-  South = 4
+  east = 1,
+  north = 2,
+  west = 3,
+  south = 4,
 };
 
 class ur_Robot
@@ -22,6 +22,7 @@ private:
   int KarelStreet;
   int beeperCount = 0;
   bool karelState = true;
+  static karelWorld KarelAndWorld;
 
   std::string setDirectionString = " ";
 
@@ -42,6 +43,10 @@ public:
   int getKarelStreet();
   int getKarelAvenue();
   std::string getDirectionString();
+  karelWorld getKarelAndWorld()
+  {
+    return KarelAndWorld;
+  }
 };
 
 #endif

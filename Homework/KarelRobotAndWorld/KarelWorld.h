@@ -7,10 +7,12 @@
 class karelWorld
 {
 private:
-  std::vector<Intersection> list; //container for the newly created intersection list in the world
+  std::vector<Intersection> list; //container for the newly created world(Karel intersection container)
 
 public:
+  //karelWorld();
   karelWorld();
+
   karelWorld(std::vector<Intersection> IntersectionList);
   bool hasCorner(int street, int avenue);
   int getBeeperCount(int street, int avenue);

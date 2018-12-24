@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 #include "karel.h"
+#include "KarelWorld.h"
 
 int main()
 {
-  ur_Robot karel(1, 1, East, 10);
+  ur_Robot karel(1, 1, east, 10);
 
   karel.print();
   karel.move();
@@ -18,6 +19,7 @@ int main()
   karel.putBeeper();
   karel.turnOff();
   karel.print();
+  karel.getKarelAndWorld();
 
   return 0;
 }
