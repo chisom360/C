@@ -1,6 +1,7 @@
 #ifndef KAREL_H
 #define KAREL_H
 #include "KarelWorld.h"
+#include "KarelWorldBuilder.h"
 #include <iostream>
 #include <string>
 
@@ -22,13 +23,18 @@ private:
   int KarelStreet;
   int beeperCount = 0;
   bool karelState = true;
-  static karelWorld KarelAndWorld;
-
   std::string setDirectionString = " ";
+  static int &getNumberOfRobotInTheWorld()
+  {
+    static int counter = 0;
+    return counter;
+  }
 
 public:
+  static karelWorld KarelAndWorld;
+  int printAllRobots();
   //ur_Robot constructor
-  ur_Robot(int xCoordinate, int yCoordinate, direction locateKarel, int BeepCnt);
+  ur_Robot(int yCoordinate, int xCoordinate, direction locateKarel, int BeepCnt);
   void print();
   void turnLeft();
   void move();
@@ -36,6 +42,7 @@ public:
   int pickBeeper();
   bool turnOff();
   void locateKarel();
+  void printWorld();
 
   //getter methods
   bool getKarelState();
@@ -43,10 +50,7 @@ public:
   int getKarelStreet();
   int getKarelAvenue();
   std::string getDirectionString();
-  karelWorld getKarelAndWorld()
-  {
-    return KarelAndWorld;
-  }
+  karelWorld getKarelAndWorld();
 };
 
 #endif

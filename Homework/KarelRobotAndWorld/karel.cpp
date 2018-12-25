@@ -1,7 +1,21 @@
 #include <iostream>
 #include "karel.h"
+#include "KarelWorld.h"
 
-karelWorld ur_Robot::KarelAndWorld; //shared static variable
+karelWorld ur_Robot::KarelAndWorld; //shared static variable object
+
+int ur_Robot::printAllRobots()
+{
+
+    std::cout << "Number of Robot in the world: " << getNumberOfRobotInTheWorld() << std::endl;
+
+    return getNumberOfRobotInTheWorld();
+}
+
+karelWorld ur_Robot::getKarelAndWorld()
+{
+    return KarelAndWorld;
+}
 
 std::string ur_Robot::getDirectionString()
 {
@@ -61,6 +75,12 @@ void ur_Robot::move()
     {
         KarelStreet += 1;
     }
+}
+
+//print world definition
+void ur_Robot::printWorld()
+{
+    return getKarelAndWorld().print();
 }
 
 // Turnleft function definition
@@ -125,11 +145,12 @@ void ur_Robot::print()
               << getDirectionString() << ","
               << getKarelBeeperCount() << ", "
               << (getKarelState() ? "On" : "Off") << ")" << std::endl;
-    getKarelAndWorld();
+    // getKarelAndWorld().print();
 }
 //PickBeeper function increments the number of beeper as long as the karel is ON
 int ur_Robot::pickBeeper()
 {
+
     if (karelState == true && beeperCount >= 1)
     {
         return beeperCount += 1;
@@ -144,11 +165,18 @@ int ur_Robot::pickBeeper()
 // before putting down beepers
 int ur_Robot::putBeeper()
 {
-    if ((beeperCount >= 1) && (karelState == true))
+    if (KarelAndWorld.hasCorner(getKarelStreet(), getKarelAvenue()) && (getKarelBeeperCount() >= 1) && (karelState == true))
     {
-        return beeperCount -= 1;
+        beeperCount -= 1;
+        KarelAndWorld.incrementBeeperCount(getKarelStreet(), getKarelAvenue());
     }
-    else if (beeperCount == 0)
+    if (KarelAndWorld.hasCorner(getKarelStreet(), getKarelAvenue()) == false && (getKarelBeeperCount() >= 1) && (karelState == true))
+    {
+        KarelAndWorld.list.push_back(Intersection(getKarelStreet(), getKarelAvenue()));
+        beeperCount -= 1;
+        KarelAndWorld.incrementBeeperCount(getKarelStreet(), getKarelAvenue());
+    }
+    if (beeperCount == 0)
     {
         //Turn off robot if karel tries to pickup a beeper when beeper count is 0
         karelState = false;
@@ -157,7 +185,8 @@ int ur_Robot::putBeeper()
 }
 
 // constructor definition
-ur_Robot::ur_Robot(int xCoordinate, int yCoordinate, direction locateKarel, int BeepCnt)
+ur_Robot::ur_Robot(int yCoordinate, int xCoordinate, direction locateKarel, int BeepCnt)
     : KarelAvenue(xCoordinate), KarelStreet(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel)
 {
+    getNumberOfRobotInTheWorld()++;
 }

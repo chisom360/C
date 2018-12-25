@@ -1,12 +1,15 @@
 #include <iostream>
 #include "KarelWorld.h"
 #include "Intersect.h"
+#include "KarelWorldBuilder.h"
+#include "karel.h"
 #include <algorithm>
 #include <iomanip>
 #include <vector>
 
 karelWorld::karelWorld()
 {
+    ur_Robot::KarelAndWorld = KarelWorldBuilder();
 }
 
 //Note: list is the container that holds the newly created world

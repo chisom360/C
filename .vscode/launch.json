@@ -9,7 +9,7 @@
       "type": "lldb",
       "request": "launch",
       //"program": "${workspaceFolder}/Homework/a.out",
-      "program": "${workspaceFolder}/Homework/KarelWorld/a.out",
+      "program": "${workspaceFolder}/Homework/KarelRobotAndWorld/a.out",
       "args": ["-arg1", "-arg2"]
     },
     {
