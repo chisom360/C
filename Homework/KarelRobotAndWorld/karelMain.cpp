@@ -4,13 +4,16 @@
 
 int main()
 {
-  ur_Robot karel(10, 10, east, 10);
+  ur_Robot karel(5, 7, north, 10);
   karel.print();
+  karel.move();
   karel.printWorld();
-  karel.putBeeper();
+  /*
   karel.printWorld();
+  karel.pickBeeper();
+  karel.printWorld();
+  */
   karel.print();
-  std::cout << karel.getKarelBeeperCount();
 
   return 0;
 }

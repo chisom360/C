@@ -49,31 +49,39 @@ void ur_Robot::move()
     if (karelState == false)
         return;
 
-    if (locateRobot == east)
+    if (locateRobot == east && KarelAndWorld.wallToEast(getKarelStreet(), getKarelAvenue()) == false)
     {
         KarelAvenue += 1;
     }
 
-    else if ((locateRobot == south) && (KarelStreet > southWall))
+    else if ((locateRobot == south) && (KarelStreet > southWall) && KarelAndWorld.wallToSouth(getKarelStreet(), getKarelAvenue()) == false)
     {
         KarelStreet -= 1;
     }
-    else if ((locateRobot == west) && (KarelAvenue > westWall))
+    else if ((locateRobot == west) && (KarelAvenue > westWall) && KarelAndWorld.wallToWest(getKarelStreet(), getKarelAvenue()) == false)
     {
         KarelAvenue -= 1;
     }
 
-    else if ((locateRobot == south) && (KarelStreet == southWall))
+    else if ((locateRobot == south && KarelStreet == southWall) || KarelAndWorld.wallToSouth(getKarelStreet(), getKarelAvenue()) == true)
     {
         karelState = false; //turn off robot if it tries to run into southwall
     }
-    else if ((locateRobot == west) && (KarelAvenue == westWall))
+    else if ((locateRobot == west && KarelAvenue == westWall) || KarelAndWorld.wallToWest(getKarelStreet(), getKarelAvenue()) == true)
     {
         karelState = false; //turn off robot if it tries to run into westwall
     }
-    else if (locateRobot == north)
+    else if (locateRobot == north && KarelAndWorld.wallToNorth(getKarelStreet(), getKarelAvenue()) == false)
     {
         KarelStreet += 1;
+    }
+    else if (locateRobot == east && KarelAndWorld.wallToEast(getKarelStreet(), getKarelAvenue()) == true)
+    {
+        karelState = false;
+    }
+    else if (locateRobot == north && KarelAndWorld.wallToNorth(getKarelStreet(), getKarelAvenue()) == true)
+    {
+        karelState = false;
     }
 }
 
@@ -151,15 +159,16 @@ void ur_Robot::print()
 int ur_Robot::pickBeeper()
 {
 
-    if (karelState == true && beeperCount >= 1)
+    if (KarelAndWorld.hasCorner(getKarelStreet(), getKarelAvenue()) && karelState == true && getKarelBeeperCount() >= 1)
     {
-        return beeperCount += 1;
+        KarelAndWorld.decrementBeeperCount(getKarelStreet(), getKarelAvenue());
+        beeperCount += 1;
     }
-    else if (beeperCount == 0)
+    if (KarelAndWorld.hasCorner(getKarelStreet(), getKarelAvenue()) == false || beeperCount == 0)
     {
         karelState = false; //turn off robot if karel tries to big beeper and there is no beeper
     }
-    return beeperCount;
+    return getKarelBeeperCount();
 }
 //this function checks to see if there is anKarelStreet more beepers left in the beeper bag and if karel is On
 // before putting down beepers
@@ -181,7 +190,7 @@ int ur_Robot::putBeeper()
         //Turn off robot if karel tries to pickup a beeper when beeper count is 0
         karelState = false;
     }
-    return beeperCount;
+    return getKarelBeeperCount();
 }
 
 // constructor definition

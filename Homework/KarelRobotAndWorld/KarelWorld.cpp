@@ -79,7 +79,7 @@ bool karelWorld::wallToNorth(int street, int avenue)
             return list[i].wallTo(North);
         }
     }
-    return EXIT_SUCCESS;
+    return false;
 }
 
 //Check for South facing wall in a corner
