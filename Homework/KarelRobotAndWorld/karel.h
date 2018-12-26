@@ -37,7 +37,7 @@ public:
   ur_Robot(int yCoordinate, int xCoordinate, direction locateKarel, int BeepCnt);
   void print();
   void turnLeft();
-  void move();
+  int move();
   int putBeeper();
   int pickBeeper();
   bool turnOff();
