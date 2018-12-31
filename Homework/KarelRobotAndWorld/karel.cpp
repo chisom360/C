@@ -7,7 +7,6 @@ karelWorld ur_Robot::KarelAndWorld; //shared static variable object
 int ur_Robot::printAllRobots()
 {
     std::cout << "Number of Robot in the world: " << getNumberOfRobotInTheWorld() << std::endl;
-    ur_Robot::print();
     this->ur_Robot::print();
     return getNumberOfRobotInTheWorld();
 }
