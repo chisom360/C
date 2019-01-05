@@ -123,6 +123,7 @@ int ur_Robot::putBeeper()
 
 // constructor definition
 ur_Robot::ur_Robot(int xCoordinate, int yCoordinate, direction locateKarel, int BeepCnt)
-    : x(xCoordinate), y(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel)
+    //   : x(xCoordinate), y(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel) //wrong order
+    : locateRobot(locateKarel), x(xCoordinate), y(yCoordinate), beeperCount(BeepCnt)
 {
 }

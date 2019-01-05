@@ -192,7 +192,8 @@ int ur_Robot::putBeeper()
 
 // constructor definition
 ur_Robot::ur_Robot(int yCoordinate, int xCoordinate, direction locateKarel, int BeepCnt)
-    : KarelAvenue(xCoordinate), KarelStreet(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel)
+    //  : KarelAvenue(xCoordinate), KarelStreet(yCoordinate), beeperCount(BeepCnt), locateRobot(locateKarel) wrong order
+    : locateRobot(locateKarel), KarelAvenue(xCoordinate), KarelStreet(yCoordinate), beeperCount(BeepCnt)
 {
     getNumberOfRobotInTheWorld()++;
 }
