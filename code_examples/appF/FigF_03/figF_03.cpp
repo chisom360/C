@@ -4,41 +4,41 @@
 #include <fstream>
 using namespace std;
 
-int main( int argc, char *argv[] )
+int main(int argc, char *argv[])
 {
    // check number of command-line arguments
-   if ( argc != 3 )
+   if (argc != 3)
       cout << "Usage: copyFile infile_name outfile_name" << endl;
    else
    {
-      ifstream inFile( argv[ 1 ], ios::in );
+      ifstream inFile(argv[1], ios::in);
 
       // input file could not be opened
-      if ( !inFile )
+      if (!inFile)
       {
-         cout << argv[ 1 ] << " could not be opened" << endl;
+         cout << argv[1] << " could not be opened" << endl;
          return -1;
-      }  // end if
+      } // end if
 
-      ofstream outFile( argv[ 2 ], ios::out );
+      ofstream outFile(argv[2], ios::out);
 
       // output file could not be opened
-      if ( !outFile )
+      if (!outFile)
       {
-         cout << argv[ 2 ] << " could not be opened" << endl;
+         cout << argv[2] << " could not be opened" << endl;
          inFile.close();
          return -2;
       } // end if
 
       char c = inFile.get(); // read first character
 
-      while ( inFile )
+      while (inFile)
       {
-         outFile.put( c );   // output character
-         c = inFile.get();   // read next character
-      }  // end while
-   }  // end else
-}  // end main
+         outFile.put(c);   // output character
+         c = inFile.get(); // read next character
+      }                    // end while
+   }                       // end else
+} // end main
 
 /**************************************************************************
  * (C) Copyright 1992-2012 by Deitel & Associates, Inc. and               *

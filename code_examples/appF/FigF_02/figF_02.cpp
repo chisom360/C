@@ -5,7 +5,7 @@
 #include <cstdarg>
 using namespace std;
 
-double average( int, ... );
+double average(int, ...);
 
 int main()
 {
@@ -14,35 +14,35 @@ int main()
    double double3 = 1.7;
    double double4 = 10.2;
 
-   cout << fixed << setprecision( 1 ) << "double1 = " 
+   cout << fixed << setprecision(1) << "double1 = "
         << double1 << "\ndouble2 = " << double2 << "\ndouble3 = "
         << double3 << "\ndouble4 = " << double4 << endl
-        << setprecision( 3 ) 
-        << "\nThe average of double1 and double2 is " 
-        << average( 2, double1, double2 )
-        << "\nThe average of double1, double2, and double3 is " 
-        << average( 3, double1, double2, double3 ) 
+        << setprecision(3)
+        << "\nThe average of double1 and double2 is "
+        << average(2, double1, double2)
+        << "\nThe average of double1, double2, and double3 is "
+        << average(3, double1, double2, double3)
         << "\nThe average of double1, double2, double3"
-        << " and double4 is " 
-        << average( 4, double1, double2, double3, double4 ) 
+        << " and double4 is "
+        << average(4, double1, double2, double3, double4)
         << endl;
-}  // end main
+} // end main
 
 // calculate average
-double average( int count, ... )
+double average(int count, ...)
 {
    double total = 0;
-   va_list list;  // for storing information needed by va_start
- 
-   va_start( list, count );
+   va_list list; // for storing information needed by va_start
+
+   va_start(list, count);
 
    // process variable-length argument list
-   for ( int i = 1; i <= count; ++i )
-      total += va_arg( list, double );
+   for (int i = 1; i <= count; ++i)
+      total += va_arg(list, double);
 
-   va_end( list ); // end the va_start
+   va_end(list); // end the va_start
    return total / count;
-}  // end function average
+} // end function average
 
 /**************************************************************************
  * (C) Copyright 1992-2012 by Deitel & Associates, Inc. and               *
