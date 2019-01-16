@@ -1,5 +1,7 @@
 #include "Spreadsheet.h"
+#include <iostream>
 
+using namespace std;
 void printSpreadsheet(Spreadsheet s)
 {
 	// code omitted for brevity
