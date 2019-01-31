@@ -1,4 +1,4 @@
-// Fig. 9.9: Time.cpp
+
 // Member-function definitions for class Time.
 #include <iostream>
 #include <iomanip>
