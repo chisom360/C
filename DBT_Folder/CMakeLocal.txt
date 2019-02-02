@@ -1,0 +1,2 @@
+option (SKIP_AUTO_REBUILD_LIBS "Skip automatically rebuilding libraries (ON/OFF)" OFF)
+option (EXEC_UT_ON_BUILD "Execute UnitTests when rebuilt (ON/OFF)" ON)
