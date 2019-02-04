@@ -65,12 +65,22 @@ int Time::getSecond()
    return second;
 } // end function getSecond
 
-// print Time in universal-time format (HH:MM:SS)
-void Time::printUniversal()
+/*
+std::ostream &operator<<(std::ostream &out, Time &t)
 {
-   cout << setfill('0') << setw(2) << getHour() << ":"
-        << setw(2) << getMinute() << ":" << setw(2) << getSecond();
-} // end function printUniversal
+   return t.printTime(out);
+}
+
+
+ostream &printTime(ostream &out)
+{
+   auto oldfill = out.fill('0');
+   return out << ((getHour() == 0 || getHour() == 12) ? 12 : getHour() % 12)
+              << ":" << setfill('0') << setw(2) << getMinute()
+              << ":" << setw(2) << getSecond() << (hour < 12 ? " AM" : " PM")
+              << std::setfill(oldfill);
+}
+*/
 
 // print Time in standard-time format (HH:MM:SS AM or PM)
 void Time::printStandard()

@@ -5,6 +5,7 @@
 // prevent multiple inclusions of header
 #ifndef TIME_H
 #define TIME_H
+#include <iostream>
 
 // Time abstract data type definition
 class Time
@@ -17,14 +18,14 @@ public:
   void setHour(int);           // set hour (after validation)
   void setMinute(int);         // set minute (after validation)
   void setSecond(int);         // set second (after validation)
-
+  //friend std::ostream &operator<<(std::ostream &out, const Time &t);
+  //std::ostream &printTime(std::ostream &out) const;
   // get functions
   int getHour();   // return hour
   int getMinute(); // return minute
   int getSecond(); // return second
 
-  void printUniversal(); // output time in universal-time format
-  void printStandard();  // output time in standard-time format
+  void printStandard(); // output time in standard-time format
 private:
   int hour;   // 0 - 23 (24-hour clock format)
   int minute; // 0 - 59
