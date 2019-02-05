@@ -7,19 +7,28 @@
 using namespace std;
 
 // Time constructor initializes each data member
-Time::Time(int hour, int minute, int second)
+Time::Time(int hour, int minute, int second, int day)
 {
-   setTime(hour, minute, second); // validate and set time
+   setTime(hour, minute, second, day); // validate and set time
 } // end Time constructor
 
 // set new Time value using universal time
-void Time::setTime(int h, int m, int s)
+void Time::setTime(int h, int m, int s, int d)
 {
    setHour(h);   // set private field hour
    setMinute(m); // set private field minute
    setSecond(s); // set private field second
+   setDay(d);
 } // end function setTime
 
+void Time::setDay(int d)
+{
+   if (d >= 1 && d < 8)
+      day = d;
+   else
+
+      throw invalid_argument("day must be 1-7");
+}
 // set hour value
 void Time::setHour(int h)
 {
@@ -65,6 +74,10 @@ int Time::getSecond()
    return second;
 } // end function getSecond
 
+int Time::getDay()
+{
+   return day;
+}
 /*
 std::ostream &operator<<(std::ostream &out, Time &t)
 {

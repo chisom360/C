@@ -1,15 +1,15 @@
 #include <iostream>
-#include <iomanip>
-#include <stdexcept>
 #include "RealTime.h" // include definition of class RealTime from RealTime.h
 using namespace std;
-#include <time.h>
 
 int main()
 {
     RealTime timeobj;
-
-    cout << timeobj.setRealHour();
-
+    cout << "Hour: " << timeobj.getRealTimeHour() << endl;
+    cout << "Minutes: " << timeobj.getRealTimeMinutes() << endl;
+    cout << "Seconds: " << timeobj.getRealTimeSeconds() << endl;
+    cout << "Day: " << timeobj.getRealDay() << endl;
+    timeobj.t.printStandard();
+    cout << '\n';
     return 0;
 }

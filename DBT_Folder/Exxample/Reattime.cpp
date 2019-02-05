@@ -13,6 +13,7 @@ int main()
     cout << "seconds= " << (timePtr->tm_sec) << endl;
     cout << "minutes = " << (timePtr->tm_min) << endl;
     cout << "hours = " << (timePtr->tm_hour) << endl;
+    cout << "Day= " << (timePtr->tm_wday) << endl;
 
     cout << "day of month = " << (timePtr->tm_mday) << endl;
     cout << "month of year = " << (timePtr->tm_mon) + 1 << endl;

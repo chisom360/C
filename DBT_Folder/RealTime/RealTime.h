@@ -1,30 +1,27 @@
 
-// Time class containing a constructor with default arguments.
+// RealTime class uses RTOS_Handler and Time class to set the data member in Time Class.
 // Member functions defined in Time.cpp.
 
 // prevent multiple inclusions of header
 #ifndef REALTIME_H
 #define REALTIME_H
-#include <iostream>
-//#include "/home/bigshow360/Documents/C++/DBT_Folder/Time/Time.h"
+//#include "../Time/Time.h"
+#include "Time.h"
 
-// Time abstract data type definition
+// RealTime abstract data type definition
 class RealTime
 {
 public:
-  // RealTime(); // default constructor
+  Time t; //Time class object
+  RealTime();
+  int getRealTimeHour();
+  int getRealTimeMinutes();
+  int getRealTimeSeconds();
+  int getRealDay();
 
-  int setRealHour(); // return hour
-  /*int getRealMinute(); // return minute
-    int getRealSecond(); // return second*/
-
-  //struct *GetTimeStruct();
-  void printStandard(); // output time in standard-time format
-private:
-  //  Time TimeSetter;
-  int mHour;   // 0 - 23 (24-hour clock format)
-  int mMinute; // 0 - 59
-  int mSecond; // 0 - 59
-};             // end class Time
+  //functions to implement
+  //int Timer();
+  //setRealTime(int, int);
+}; // end class Time
 
 #endif

@@ -1,0 +1,15 @@
+#include <iostream>
+
+#include "RTOS_Handler.h"
+using namespace std;
+
+int main()
+{
+
+    cout << "Hour: " << RTOS_Hour() << endl;
+    cout << "Mins: " << RTOS_MINUTES() << endl;
+    cout << "Sec: " << RTOS_SECONDS() << endl;
+    cout << "Day: " << getDayOfTheWeek() << endl;
+
+    return 0;
+}

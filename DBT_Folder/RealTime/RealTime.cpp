@@ -1,37 +1,31 @@
+#include "RealTime.h"
+//#include "../RTOS/RTOS_Handler.h"
+#include "RTOS_Handler.h"
 
-// Member-function definitions for class RealTime.
-#include <ctime>
-#include "RealTime.h" // include definition of class RealTime from RealTime.h
-using namespace std;
-#include <time.h>
-
-// return hour value
-int RealTime::setRealHour()
+RealTime::RealTime()
 {
-    time_t t = time(NULL);
-    tm *timePtr = localtime(&t);
-    int tempHour = timePtr->tm_hour;
-    return tempHour;
+    t.setHour(RTOS_Hour());
+    t.setMinute(RTOS_MINUTES());
+    t.setSecond(RTOS_SECONDS());
+    t.setDay(getDayOfTheWeek());
+}
 
-} // end function getHour
-
-/*int RealTime::getRealMinute()
+int RealTime::getRealTimeHour()
 {
-    return minute;
-} // end function getMinute
+    return t.getHour();
+}
 
-// return second value
-int RealTime::getRealSecond()
+int RealTime::getRealTimeMinutes()
 {
-    return second;
-} // end function getSecond*/
+    return t.getMinute();
+}
 
-//struct *ReaTime::GetTimeStruct()
-//{
-//time_t rawtime;
-// struct tm *timeinfo;
+int RealTime::getRealTimeSeconds()
+{
+    return t.getSecond();
+}
 
-//time(&rawtime);
-//timeinfo = localtime(&rawtime);
-//return timeinfo;
-//}
+int RealTime::getRealDay()
+{
+    return t.getDay();
+}
