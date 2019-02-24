@@ -1,4 +1,4 @@
-
+{
   "cSpell.language": "en",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -27,5 +27,11 @@
     "typescript",
     "typescriptreact",
     "yml"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#3D1A67",
+    "titleBar.activeBackground": "#552490",
+    "titleBar.activeForeground": "#FCFAFE"
+  },
+  "cmake.buildDirectory": "${workspaceRoot}/../build"
 }

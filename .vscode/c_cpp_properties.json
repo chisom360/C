@@ -17,6 +17,7 @@
     },
     {
       "name": "Linux",
+      "compileCommands": "/home/bigshow360/Documents/C++/QtProject/cmakeqtapp/build/compile_commands.json",
       "includePath": [
         "/usr/include",
         "/usr/local/include",
@@ -28,8 +29,15 @@
         "/usr/include/linux",
         "/usr/include",
         "/usr/bin/g++",
+        "/usr/bin/c++ ",
         "/usr/include/x86_64-linux-gnu/c++/7",
         "/usr/include/c++/7/backward",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtCore",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/*",
+        "/home/bigshow360/Qt/5.12.1/Src",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtGui",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtWidgets",
         "/usr/lib/gcc/x86_64-linux-gnu/7/include"
       ],
       "defines": [],
@@ -81,6 +89,25 @@
       "cStandard": "c11",
       "cppStandard": "c++17",
       "compilerPath": "/usr/bin/clang"
+    },
+    {
+      "name": "Qt",
+      "includePath": [
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtCore",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/*",
+        "/home/bigshow360/Qt/5.12.1/Src",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtGui",
+        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtWidgets",
+        "${workspaceRoot}/QtProject"
+      ],
+      "defines": [],
+      "intelliSenseMode": "clang-x64",
+      "browse": {
+        "path": [],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      }
     }
   ],
   "version": 4
