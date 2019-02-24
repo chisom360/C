@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch",
+      "name": "(lldb) Launch",
       "type": "lldb",
       "request": "launch",
       //"program": "${workspaceFolder}/Homework/a.out",
@@ -16,13 +16,29 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      // "program": "${workspaceFolder}//Homework/a.out",
-      "program": "${workspaceFolder}/Homework/KarelCpp/a.out",
+      "program": "${workspaceFolder}/Homework/",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": true,
+      "MIMode": "gdb",
+
+      // "preLaunchTask": "make",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "(gdb) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "${workspaceFolder}/Homework/KarelCpp",
+      "processId": "${command:pickProcess}",
       "MIMode": "gdb",
       "setupCommands": [
         {

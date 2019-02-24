@@ -1,23 +1,7 @@
 {
   "configurations": [
     {
-      "name": "Mac",
-      "includePath": ["/usr/include", "/usr/local/include", "${workspaceRoot}"],
-      "defines": [],
-      "intelliSenseMode": "clang-x64",
-      "browse": {
-        "path": ["/usr/include", "/usr/local/include", "${workspaceRoot}"],
-        "limitSymbolsToIncludedHeaders": true,
-        "databaseFilename": ""
-      },
-      "macFrameworkPath": ["/System/Library/Frameworks", "/Library/Frameworks"],
-      "compilerPath": "/usr/bin/clang",
-      "cStandard": "c11",
-      "cppStandard": "c++17"
-    },
-    {
       "name": "Linux",
-      "compileCommands": "/home/bigshow360/Documents/C++/QtProject/cmakeqtapp/build/compile_commands.json",
       "includePath": [
         "/usr/include",
         "/usr/local/include",
@@ -57,57 +41,6 @@
       "compilerPath": "/usr/bin/clang",
       "cStandard": "c11",
       "cppStandard": "c++17"
-    },
-    {
-      "name": "Win32",
-      "includePath": [
-        "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
-        "C:/Program Files (x86)/Windows Kits/8.1/Include/um",
-        "${workspaceRoot}",
-        "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++",
-        "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32",
-        "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tr1",
-        "C:/MinGW/include",
-        "C:/MinGW/lib/gcc/mingw32/6.3.0/include"
-      ],
-      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
-      "intelliSenseMode": "clang-x64",
-      "browse": {
-        "path": [
-          "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
-          "C:/Program Files (x86)/Windows Kits/8.1/Include/um",
-          "${workspaceRoot}",
-          "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++",
-          "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32",
-          "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tr1",
-          "C:/MinGW/lib/gcc/mingw32/6.3.0/include",
-          "C:/MinGW/include"
-        ],
-        "limitSymbolsToIncludedHeaders": true,
-        "databaseFilename": ""
-      },
-      "cStandard": "c11",
-      "cppStandard": "c++17",
-      "compilerPath": "/usr/bin/clang"
-    },
-    {
-      "name": "Qt",
-      "includePath": [
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtCore",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/*",
-        "/home/bigshow360/Qt/5.12.1/Src",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtGui",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtWidgets",
-        "${workspaceRoot}/QtProject"
-      ],
-      "defines": [],
-      "intelliSenseMode": "clang-x64",
-      "browse": {
-        "path": [],
-        "limitSymbolsToIncludedHeaders": true,
-        "databaseFilename": ""
-      }
     }
   ],
   "version": 4
