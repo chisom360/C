@@ -33,5 +33,6 @@
     "titleBar.activeBackground": "#552490",
     "titleBar.activeForeground": "#FCFAFE"
   },
-  "cmake.buildDirectory": "${workspaceRoot}/../build"
+  "cmake.buildDirectory": "${workspaceRoot}/../build",
+  "python.linting.pylintEnabled": true
 }

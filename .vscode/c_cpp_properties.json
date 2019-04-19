@@ -16,12 +16,6 @@
         "/usr/bin/c++ ",
         "/usr/include/x86_64-linux-gnu/c++/7",
         "/usr/include/c++/7/backward",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtCore",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/*",
-        "/home/bigshow360/Qt/5.12.1/Src",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtGui",
-        "/home/bigshow360/Qt/5.12.1/gcc_64/include/QtWidgets",
         "/usr/lib/gcc/x86_64-linux-gnu/7/include"
       ],
       "defines": [],

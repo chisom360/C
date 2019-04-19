@@ -1,4 +1,0 @@
-/home/bigshow360/Documents/C++/QtProject/cmakeqtapp/build/CMakeFiles/rebuild_cache.dir
-/home/bigshow360/Documents/C++/QtProject/cmakeqtapp/build/CMakeFiles/cmakeqtapp.dir
-/home/bigshow360/Documents/C++/QtProject/cmakeqtapp/build/CMakeFiles/edit_cache.dir
-/home/bigshow360/Documents/C++/QtProject/cmakeqtapp/build/CMakeFiles/cmakeqtapp_autogen.dir

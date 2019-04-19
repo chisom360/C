@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>form2.qml</file>
-    </qresource>
-</RCC>
