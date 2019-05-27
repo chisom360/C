@@ -16,7 +16,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/Homework/Intersect/a.out",
+      "program": "${workspaceFolder}/ProgrammingWithC++/Array/a.out",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
