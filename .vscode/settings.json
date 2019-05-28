@@ -34,5 +34,27 @@
     "titleBar.activeForeground": "#FCFAFE"
   },
   "cmake.buildDirectory": "${workspaceRoot}/../build",
-  "python.linting.pylintEnabled": true
+  "python.linting.pylintEnabled": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "googletest.failed",
+        "settings": {
+          "foreground": "#f00"
+        }
+      },
+      {
+        "scope": "googletest.passed",
+        "settings": {
+          "foreground": "#0f0"
+        }
+      },
+      {
+        "scope": "googletest.run",
+        "settings": {
+          "foreground": "#0f0"
+        }
+      }
+    ]
+  }
 }
